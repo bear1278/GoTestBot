@@ -1,0 +1,15 @@
+messages:
+  responses:
+    strat: "Hello! This bot can make ToDo list for you!"
+    unvalid_command: "Unvalid Command"
+    task_add: "Task was added"
+    task_del: "Task was deleted"
+    task_mark: "Task was marked"
+    task_enter: "Enter task name: "
+  errors:
+    IndenticalTask: "Task with this name already exist"
+    NoTasks: "You have not got tasks yet"
+    UnvalidText: "Please, enter command"
+    TaskNotFound: "Task not found"
+    AlreadyMark: "Task has already marked"
+    unvalid_err: "Unknown error"
