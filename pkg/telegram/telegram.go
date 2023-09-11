@@ -3,8 +3,8 @@ package telegram
 import (
 	"log"
 
-	"github.com/bear1278/GoTestBot/config"
-	"github.com/bear1278/GoTestBot/db"
+	"github.com/bear1278/GoTestBot/pkg/config"
+	"github.com/bear1278/GoTestBot/pkg/db"
 
 	tgbotapi "github.com/Syfaro/telegram-bot-api"
 )

@@ -4,9 +4,9 @@ import (
 	"database/sql"
 	"log"
 
-	"github.com/bear1278/GoTestBot/config"
+	"github.com/bear1278/GoTestBot/pkg/config"
 	Mysql "github.com/bear1278/GoTestBot/pkg/db/MySQL"
-	telegram "github.com/bear1278/GoTestBot/telegram"
+	telegram "github.com/bear1278/GoTestBot/pkg/telegram"
 
 	_ "github.com/go-sql-driver/mysql"
 

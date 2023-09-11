@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	tg "github.com/bear1278/GoTestBot/telegram"
+	tg "github.com/bear1278/GoTestBot/pkg/telegram"
 )
 
 type DbRepository struct{
