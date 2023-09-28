@@ -1,0 +1,25 @@
+services:
+  gotestbot:
+    build:
+      context: .
+      target: final
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    env_file:
+      - .env
+  db:
+    image: mysql:8
+    restart: always
+    environment:
+      - MYSQL_DATABASE=gotestbot
+      - MYSQL_ROOT_PASSWORD=root
+    volumes:
+      - ./data/migration.sql:/docker-entrypoint-initdb.d/0_init.sql
+      - db-data:/var/lib/mysql
+    command: --init-file /docker-entrypoint-initdb.d/0_init.sql
+    expose:
+      - 3306:3306
+volumes:
+  db-data:
