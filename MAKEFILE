@@ -1,0 +1,15 @@
+.PHONY:
+.SILENT:
+
+build:
+	go build -o ./.bin/bot cmd/bot/main.go
+
+run:
+	./.bin/bot
+
+build-image:
+	docker compose up --build
+
+start-container:
+	docker compose up
+
