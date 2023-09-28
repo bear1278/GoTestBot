@@ -35,48 +35,43 @@ func Init() (*Config, error) {
 	viper.AddConfigPath("configs")
 	viper.SetConfigName("main")
 
-	err:=viper.ReadInConfig()
-	if err!=nil{
+	err := viper.ReadInConfig()
+	if err != nil {
 		return nil, err
 	}
 
 	var cfg Config
 
-	err=viper.UnmarshalKey("messages.responses",&cfg.Messages.Responses)
-	if err!=nil{
-		return nil,err
+	err = viper.UnmarshalKey("messages.responses", &cfg.Messages.Responses)
+	if err != nil {
+		return nil, err
 	}
 
-
-	err=viper.UnmarshalKey("messages.errors",&cfg.Messages.Errors)
-	if err!=nil{
-		return nil,err
+	err = viper.UnmarshalKey("messages.errors", &cfg.Messages.Errors)
+	if err != nil {
+		return nil, err
 	}
 
-	if err=ParseEnv(&cfg);err!=nil{
-		return nil,err
+	if err = ParseEnv(&cfg); err != nil {
+		return nil, err
 	}
 
 	return &cfg, nil
 }
 
+func ParseEnv(cfg *Config) error {
 
-func ParseEnv(cfg *Config) error{
-
-	
-
-	if err:=viper.BindEnv("token");err!=nil{
+	if err := viper.BindEnv("token"); err != nil {
 		return err
 	}
 
-	
+	cfg.TelegramToken = viper.GetString("token")
 
-	if err:=viper.BindEnv("mysql");err!=nil{
+	if err := viper.BindEnv("mysql"); err != nil {
 		return err
 	}
 
-	cfg.TelegramToken=viper.GetString("token")
-	cfg.DbPtah=viper.GetString("mysql")
+	cfg.DbPtah = viper.GetString("mysql")
 	return nil
 
 }
